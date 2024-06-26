@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 
-app.post('/convertToCarValue', (req, res) => {
+app.post('/convertInputToCarValue', (req, res) => {
     const model = req.body.model;
     const year = req.body.year;
     const carValue = getCarValue(model, year);
