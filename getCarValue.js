@@ -1,46 +1,38 @@
 const modelValidation = /^[A-Za-z]+$/
 const yearValidation = /^\d{4}$/
 const timesHundred = 100
-const charValueDifferent = 96
+const charValueDifference = 96
 
 
 function getCarValue(model, year){
 
-
-    if(!modelValidation.test(model) && yearValidation.test(year)){
-        return parseInt(year)
+    if(!checkYear(year)){
+        return "there is an error"
     }
 
-    if(modelValidation.test(model) &&!yearValidation.test(year)){
-        const modelValue = model.toLowerCase().split('').reduce((acc, curr) => {
-            return acc + curr.charCodeAt(0) - charValueDifferent
-        }, 0)
-        modelValue = modelValue * timesHundred
-        return modelValue
+    if(!checkModel(model)){
+        return year
     }
 
-    if(modelValidation.test(model) && yearValidation.test(year)){
+    else{
         const modelValue = model.toLowerCase().split('').reduce((acc, curr) => {
-            return acc + curr.charCodeAt(0) - charValueDifferent
+            return acc + curr.charCodeAt(0) - charValueDifference
         }, 0)
 
-        carValue = modelValue * timesHundred + parseInt(year)
+        const carValue = modelValue * timesHundred + parseInt(year)
 
         return carValue
     }
 
-    else{
-        return "Wrong data type"
-    }
 }
 
 
 function checkModel(model){
-
+    return modelValidation.test(model)
 }
 
 function checkYear(year){
-
+    return yearValidation.test(year) && year > 0
 }
 
 module.exports = { getCarValue }

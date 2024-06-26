@@ -14,8 +14,12 @@ app.use(cors());
 app.post('/convertInputToCarValue', (req, res) => {
     const model = req.body.model;
     const year = req.body.year;
-    const carValue = getCarValue(model, year);
-    res.json({ carValue });
+    const car_value = getCarValue(model, year);
+    const error = "there is an error";
+    if (car_value === "there is an error") {
+        res.json({ error });
+    }
+    res.json({ car_value });
 })
 
 
