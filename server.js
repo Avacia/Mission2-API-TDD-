@@ -14,7 +14,8 @@ app.post('/convertInputToCarValue', async (req, res) => {
     const { model, year } = req.body;
     const car_value = getCarValue(model, year);
     const error_message = "there is an error";
-    if (car_value === "there is an error") {
+    
+    if (car_value === false) {
         return res.json({ error: error_message });
     }
     res.json({ car_value });
