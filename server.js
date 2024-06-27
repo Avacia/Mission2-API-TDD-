@@ -1,21 +1,27 @@
 const fs = require("fs/promises");
 const express = require("express");
 const cors = require("cors");
-const { v4: uuid } = require("uuid");
 require("dotenv").config();
 
-const { getCarValue } = require("./getCarValue.js");
+const { getCarValue } = require("./APIFunctions/getCarValue.js");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 
-app.post('/convertToCarValue', (req, res) => {
-    const model = req.body.model;
-    const year = req.body.year;
-    const carValue = getCarValue(model, year);
-    res.json({ carValue });
+app.post('/convertInputToCarValue', async (req, res) => {
+    const { model, year } = req.body;
+    const car_value = getCarValue(model, year);
+    const error_message = "there is an error";
+    if (car_value === "there is an error") {
+        return res.json({ error: error_message });
+    }
+    res.json({ car_value });
+
+
+    await fs.mkdir("data/car_value", { recursive: true });
+    await fs.writeFile(`data/car_value/${model}_${year}.txt`, car_value.toString());
 })
 
 
