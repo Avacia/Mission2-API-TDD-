@@ -1,5 +1,6 @@
-const modelValidation = /^[A-Za-z]+$/
+const modelValidation = /^[^\d]+$/
 const yearValidation = /^\d{4}$/
+const symbolValidation = /^[+*/=!@#$%^&,.?\-\s]+$/
 const timesHundred = 100
 const charValueDifference = 96
 
@@ -7,7 +8,7 @@ const charValueDifference = 96
 function getCarValue(model, year){
 
     if(!checkYear(year)){
-        return "there is an error"
+        return false
     }
 
     if(!checkModel(model)){
@@ -15,24 +16,45 @@ function getCarValue(model, year){
     }
 
     else{
-        const modelValue = model.toLowerCase().split('').reduce((acc, curr) => {
-            return acc + curr.charCodeAt(0) - charValueDifference
-        }, 0)
-
+        const newModelName = removeSymbol(model)
+        const modelValue = calculateModelValue(newModelName)
         const carValue = modelValue * timesHundred + parseInt(year)
-
         return carValue
     }
 
 }
 
 
-function checkModel(model){
-    return modelValidation.test(model)
+function checkModel(model){ 
+    const newModelName = removeSymbol(model)
+    return modelValidation.test(newModelName)
 }
 
 function checkYear(year){
-    return yearValidation.test(year) && year > 0
+    return (yearValidation.test(year)) ? checkYearIsPositive(year) : false
 }
 
-module.exports = { getCarValue }
+function checkYearIsPositive(year){
+    return year > 0
+}
+
+function removeSymbol(model){
+    for(let i = 0; i < model.length; i++){
+        if(symbolValidation.test(model[i])){
+            symbol = model[i]
+            model = model.replaceAll(`${symbol}`, '')
+            i --
+        }
+    }
+    return model
+}
+
+function calculateModelValue(model){
+    const modelValue = model.toLowerCase().split('').reduce((acc, curr) => {
+        return acc + curr.charCodeAt(0) - charValueDifference
+    }, 0)
+
+    return modelValue
+}
+
+module.exports = { getCarValue, checkModel, checkYear, removeSymbol, calculateModelValue }
