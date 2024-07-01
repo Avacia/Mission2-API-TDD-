@@ -4,6 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const { getCarValue } = require("./APIFunctions/getCarValue.js");
+const { calculateRiskRating } = require("./APIFunctions/calculateRiskRating.js");
 
 const app = express();
 app.use(express.json());
@@ -23,9 +24,23 @@ app.post('/convertInputToCarValue', async (req, res) => {
 
     await fs.mkdir("data/car_value", { recursive: true });
     await fs.writeFile(`data/car_value/${model}_${year}.txt`, car_value.toString());
-})
+});
 
 
+app.post('/getRiskRate', async (req, res) => {
 
-const port = process.env.PORT
+    try{
+        // console.log(req.body);
+        const { claim_history } = req.body;
+        // console.log(claim_history)
+        const rating = calculateRiskRating(claim_history);
+        res.status(200).json(rating);
+
+    } catch (error) {
+        return res.status(400).send({ message: 'there is an error', error });
+    }
+});
+
+
+const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`API Server is running on http://localhost:${port}`));
