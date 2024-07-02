@@ -1,4 +1,6 @@
-const { getCarValue, removeSymbol, checkModel, calculateModelValue, checkYear } = require('../APIFunctions/getCarValue')
+const { getCarValue, removeSymbol, checkModel, 
+        calculateModelValue, checkYear, checkPossibleCarYear, 
+        checkYearIsPositive } = require('../APIFunctions/getCarValue')
 
 describe('getCarValue', () => {
 
@@ -31,7 +33,13 @@ describe('getCarValue', () => {
     expect(checkYear("2020")).toBe(true);
     expect(checkYear(987)).toBe(false);
     expect(checkYear(9-87)).toBe(false);
+    expect(checkYear("9-87")).toBe(false);
+    expect(checkYear(1950)).toBe(false);
+    expect(checkYear("1950s")).toBe(false);
+    expect(checkYear(1969)).toBe(true);
     expect(checkYear("Twenty twenty")).toBe(false);
+    expect(checkPossibleCarYear(1969)).toBe(true);
+    expect(checkPossibleCarYear(1950)).toBe(false);
   });
 
   it('Wrong data type', () => {
