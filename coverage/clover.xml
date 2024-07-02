@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1719905810852" clover="3.2.0">
+  <project timestamp="1719905810852" name="All files">
+    <metrics statements="27" coveredstatements="27" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7" elements="42" coveredelements="42" complexity="0" loc="27" ncloc="27" packages="1" files="1" classes="1"/>
+    <file name="getCarValue.js" path="E:\MissionReady\L5-Cloud-devOp\L5-mission\Mission2-API-TDD-\APIFunctions\getCarValue.js">
+      <metrics statements="27" coveredstatements="27" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="10" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="11" count="2" type="stmt"/>
+      <line num="14" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="19" count="2" type="stmt"/>
+      <line num="20" count="2" type="stmt"/>
+      <line num="21" count="2" type="stmt"/>
+      <line num="22" count="2" type="stmt"/>
+      <line num="29" count="7" type="stmt"/>
+      <line num="30" count="7" type="stmt"/>
+      <line num="34" count="10" type="cond" truecount="2" falsecount="0"/>
+      <line num="38" count="5" type="stmt"/>
+      <line num="42" count="11" type="stmt"/>
+      <line num="43" count="74" type="cond" truecount="2" falsecount="0"/>
+      <line num="44" count="9" type="stmt"/>
+      <line num="45" count="9" type="stmt"/>
+      <line num="46" count="9" type="stmt"/>
+      <line num="49" count="11" type="stmt"/>
+      <line num="53" count="3" type="stmt"/>
+      <line num="54" count="23" type="stmt"/>
+      <line num="57" count="3" type="stmt"/>
+      <line num="60" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
