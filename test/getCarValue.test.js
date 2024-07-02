@@ -1,6 +1,6 @@
 const { getCarValue, removeSymbol, checkModel, 
-        calculateModelValue, checkYear, checkPossibleCarYear, 
-        checkYearIsPositive } = require('../APIFunctions/getCarValue')
+        calculateModelValue, checkYear, checkPossibleCarYear} 
+        = require('../APIFunctions/getCarValue')
 
 describe('getCarValue', () => {
 
