@@ -3,6 +3,7 @@ const yearValidation = /^\d{4}$/
 const symbolValidation = /^[+*/=!@#$%^&,.?\-\s]+$/
 const timesHundred = 100
 const charValueDifference = 96
+const oldestCarYear = 1969
 
 
 function getCarValue(model, year){
@@ -31,11 +32,11 @@ function checkModel(model){
 }
 
 function checkYear(year){
-    return (yearValidation.test(year)) ? checkYearIsPositive(year) : false
+    return (yearValidation.test(year)) ? checkPossibleCarYear(year) : false
 }
 
-function checkYearIsPositive(year){
-    return year > 0
+function checkPossibleCarYear(year){
+    return year >= oldestCarYear
 }
 
 function removeSymbol(model){
@@ -57,4 +58,4 @@ function calculateModelValue(model){
     return modelValue
 }
 
-module.exports = { getCarValue, checkModel, checkYear, removeSymbol, calculateModelValue }
+module.exports = { getCarValue, checkModel, checkYear, removeSymbol, calculateModelValue, checkPossibleCarYear}
