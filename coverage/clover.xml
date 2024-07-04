@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1719911992165" clover="3.2.0">
-  <project timestamp="1719911992165" name="All files">
+<coverage generated="1720057729923" clover="3.2.0">
+  <project timestamp="1720057729923" name="All files">
     <metrics statements="28" coveredstatements="28" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7" elements="43" coveredelements="43" complexity="0" loc="28" ncloc="28" packages="1" files="1" classes="1"/>
     <file name="getCarValue.js" path="E:\MissionReady\L5-Cloud-devOp\L5-mission\Mission2-API-TDD-\APIFunctions\getCarValue.js">
       <metrics statements="28" coveredstatements="28" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
@@ -10,24 +10,24 @@
       <line num="4" count="1" type="stmt"/>
       <line num="5" count="1" type="stmt"/>
       <line num="6" count="1" type="stmt"/>
-      <line num="11" count="5" type="cond" truecount="2" falsecount="0"/>
-      <line num="12" count="2" type="stmt"/>
-      <line num="15" count="3" type="cond" truecount="2" falsecount="0"/>
-      <line num="16" count="1" type="stmt"/>
+      <line num="11" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="15" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="16" count="3" type="stmt"/>
       <line num="20" count="2" type="stmt"/>
       <line num="21" count="2" type="stmt"/>
       <line num="22" count="2" type="stmt"/>
       <line num="23" count="2" type="stmt"/>
-      <line num="30" count="7" type="stmt"/>
-      <line num="31" count="7" type="stmt"/>
-      <line num="35" count="14" type="cond" truecount="2" falsecount="0"/>
-      <line num="39" count="9" type="stmt"/>
-      <line num="43" count="11" type="stmt"/>
-      <line num="44" count="74" type="cond" truecount="2" falsecount="0"/>
-      <line num="45" count="9" type="stmt"/>
-      <line num="46" count="9" type="stmt"/>
-      <line num="47" count="9" type="stmt"/>
-      <line num="50" count="11" type="stmt"/>
+      <line num="30" count="10" type="stmt"/>
+      <line num="31" count="10" type="stmt"/>
+      <line num="35" count="15" type="cond" truecount="2" falsecount="0"/>
+      <line num="39" count="14" type="stmt"/>
+      <line num="43" count="14" type="stmt"/>
+      <line num="44" count="82" type="cond" truecount="2" falsecount="0"/>
+      <line num="45" count="13" type="stmt"/>
+      <line num="46" count="13" type="stmt"/>
+      <line num="47" count="13" type="stmt"/>
+      <line num="50" count="14" type="stmt"/>
       <line num="54" count="3" type="stmt"/>
       <line num="55" count="23" type="stmt"/>
       <line num="58" count="3" type="stmt"/>

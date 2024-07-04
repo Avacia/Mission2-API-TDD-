@@ -12,18 +12,19 @@ app.use(cors());
 
 
 app.post('/convertInputToCarValue', async (req, res) => {
-    const { model, year } = req.body;
-    const car_value = getCarValue(model, year);
-    const error_message = "there is an error";
-    
-    if (car_value === false) {
-        return res.json({ error: error_message });
+
+    try{
+        const { model, year } = req.body;
+        const car_value = getCarValue(model, year);
+        res.status(200).json({ car_value });
+
+        await fs.mkdir("data/car_value", { recursive: true });
+        await fs.writeFile(`data/car_value/${model}_${year}.txt`, car_value.toString());
     }
-    res.json({ car_value });
-
-
-    await fs.mkdir("data/car_value", { recursive: true });
-    await fs.writeFile(`data/car_value/${model}_${year}.txt`, car_value.toString());
+    catch (error) {
+        return res.status(400).send({ message: "There is an error", error });
+    }
+        
 });
 
 
